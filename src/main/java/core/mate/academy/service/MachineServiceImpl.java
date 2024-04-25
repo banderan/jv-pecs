@@ -17,16 +17,12 @@ public class MachineServiceImpl<T extends Machine> implements MachineService<T> 
         List<? extends Machine> machines = new ArrayList<>();
         if (Bulldozer.class == type) {
             machines = new BulldozerProducer().get();
-            return (List<T>) machines;
         } else if (type == Excavator.class) {
             machines = new ExcavatorProducer().get();
-            return (List<T>) machines;
         } else if (type == Truck.class) {
             machines = new TruckProducer().get();
-            return (List<T>) machines;
-        } else {
-            return Collections.emptyList();
         }
+        return (List<T>) machines;
     }
 
     @Override
